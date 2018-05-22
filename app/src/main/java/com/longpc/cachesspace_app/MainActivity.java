@@ -36,6 +36,7 @@ public class MainActivity extends Activity {
                 .cacheSpaceInterface(new CacheSpaceCallback() {
                     @Override
                     public void cacheTimeEnd() {
+                        Log.e("ssss","ssss");
                         Toast.makeText(MainActivity.this, "你点我了啊！", Toast.LENGTH_SHORT).show();
                     }
                 })

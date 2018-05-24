@@ -1,10 +1,8 @@
 apply plugin: 'com.android.library'
 
 android {
+
     compileSdkVersion 27
-
-
-
     defaultConfig {
         minSdkVersion 15
         targetSdkVersion 27
@@ -23,5 +21,32 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
 }
+
+allprojects {
+    tasks.withType(Javadoc) {
+        options.addStringOption('Xdoclint:none', '-quiet')
+        options.addStringOption('encoding', 'UTF-8')
+    }
+}
+
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'CacheSpace2'
+    publishedGroupId = 'cachespace'
+    libraryName = 'CacheSpace'
+    artifact = 'cachespace'
+    libraryDescription = 'A CacheSpace Library'
+    siteUrl = 'https://github.com/yxlku/CacheSpace'
+    gitUrl = 'https://github.com/yxlku/CacheSpace.git'
+    libraryVersion = '1.0.0'
+    developerId = 'longpc1'
+    developerName = 'longpc1'
+    developerEmail = '1379035808longpc@gmail.com'
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+//apply from: 'bintray3.gradle'
+apply from: 'installv1.gradle'
+apply from: 'bintrayv1.gradle'

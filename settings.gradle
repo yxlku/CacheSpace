@@ -1,1 +1,1 @@
-include ':app', ':cachespace'
+include ':cachespace'
